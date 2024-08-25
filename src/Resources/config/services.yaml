@@ -1,0 +1,14 @@
+services:
+  # Services
+  Flawlol\FacadeIdeHelper\Service\ProcessCommand:
+    class: Flawlol\FacadeIdeHelper\Service\ProcessCommand
+
+  Flawlol\FacadeIdeHelper\Service\FacadeHelperGenerator:
+    class: Flawlol\FacadeIdeHelper\Service\FacadeHelperGenerator
+
+  # Interface binding
+  Flawlol\FacadeIdeHelper\Interface\ProcessInterface:
+    alias: Flawlol\FacadeIdeHelper\Service\ProcessCommand
+
+  Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface:
+    alias: Flawlol\FacadeIdeHelper\Service\FacadeHelperGenerator

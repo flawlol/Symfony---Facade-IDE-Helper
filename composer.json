@@ -1,0 +1,27 @@
+{
+    "name": "flawlol/facade-ide-helper",
+    "description": "IDE Helper for flawlol/facade package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Flawlol\\FacadeIdeHelper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Norbert Kecső",
+            "email": "flawlesslol123@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "symfony/framework-bundle": ">=6.4",
+        "flawlol/facade": ">^1.0"
+    },
+    "keywords": [
+        "symfony",
+        "facade",
+        "bundle",
+        "ide-helper"
+    ]
+}
