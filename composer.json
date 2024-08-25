@@ -16,7 +16,7 @@
     "require": {
         "php": ">=8.2",
         "symfony/framework-bundle": ">=6.4",
-        "flawlol/facade": ">^1.0"
+        "flawlol/facade": ">=1.0"
     },
     "keywords": [
         "symfony",
