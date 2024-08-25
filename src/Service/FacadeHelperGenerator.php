@@ -49,6 +49,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
 
         $helperFile = new SplFileObject('_ide-helper.php', 'w');
         $helperFile->fwrite("<?php\n");
+        $helperFile->fwrite("\n");
 
         foreach ($finder as $file) {
             $className = $this->getClassNameFromFile($file->getRealPath());
@@ -127,6 +128,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
 
             $this->currentNamespace = $namespace;
             $helperFile->fwrite("namespace {$namespace} {\n");
+            $helperFile->fwrite("\n");
         }
 
         $helperFile->fwrite("    class {$reflectionClass->getShortName()}\n");
