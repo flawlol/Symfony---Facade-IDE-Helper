@@ -175,6 +175,10 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         $returnType = $method->getReturnType();
         $returnTypeString = $returnType ? $returnType->getName() : 'mixed';
 
+        if ($returnTypeString === 'self') {
+            $returnTypeString = "\\" . $serviceInstanceReflection->getName();
+        }
+
         $params = [];
 
         foreach ($method->getParameters() as $param) {
