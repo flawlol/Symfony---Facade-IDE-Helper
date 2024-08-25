@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/flawlol/facade-ide-helper/v)](https://packagist.org/packages/flawlol/facade-ide-helper)
+[![Total Downloads](https://poser.pugx.org/flawlol/facade-ide-helper/downloads)](https://packagist.org/packages/flawlol/facade-ide-helper)
+[![Latest Unstable Version](https://poser.pugx.org/flawlol/facade-ide-helper/v/unstable)](https://packagist.org/packages/flawlol/facade-ide-helper)
+[![License](https://poser.pugx.org/flawlol/facade-ide-helper/license)](https://packagist.org/packages/flawlol/facade-ide-helper)
+[![PHP Version Require](https://poser.pugx.org/flawlol/facade-ide-helper/require/php)](https://packagist.org/packages/flawlol/facade-ide-helper)
 # Flawlol Facade IDE Helper 
 Generate IDE helper files for facades in Symfony.
 
