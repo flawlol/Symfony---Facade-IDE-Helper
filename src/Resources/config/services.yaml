@@ -2,9 +2,13 @@ services:
   # Services
   Flawlol\FacadeIdeHelper\Service\ProcessCommand:
     class: Flawlol\FacadeIdeHelper\Service\ProcessCommand
+    arguments:
+      $facadeHelperGenerator: '@Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface'
 
   Flawlol\FacadeIdeHelper\Service\FacadeHelperGenerator:
     class: Flawlol\FacadeIdeHelper\Service\FacadeHelperGenerator
+    arguments:
+      $container: '@service_container'
 
   # Interface binding
   Flawlol\FacadeIdeHelper\Interface\ProcessInterface:
@@ -12,3 +16,12 @@ services:
 
   Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface:
     alias: Flawlol\FacadeIdeHelper\Service\FacadeHelperGenerator
+
+
+  # Commands
+  Flawlol\FacadeIdeHelper\Command\IdeHelperCommand:
+    class: Flawlol\FacadeIdeHelper\Command\IdeHelperCommand
+    arguments:
+      $process: '@Flawlol\FacadeIdeHelper\Interface\ProcessInterface'
+    tags:
+      - { name: 'console.command' }
