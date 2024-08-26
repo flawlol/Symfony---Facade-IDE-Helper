@@ -1,6 +1,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/flawlol/symfony-facade-ide-helper/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/flawlol/symfony-facade-ide-helper/?branch=main)
 [![Build Status](https://scrutinizer-ci.com/g/flawlol/symfony-facade-ide-helper/badges/build.png?b=main)](https://scrutinizer-ci.com/g/flawlol/symfony-facade-ide-helper/build-status/main)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/flawlol/symfony-facade-ide-helper/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
+[![StyleCI](https://github.styleci.io/repos/847236072/shield?branch=main)](https://github.styleci.io/repos/847236072?branch=main)
 
 [![Latest Stable Version](https://poser.pugx.org/flawlol/facade-ide-helper/v)](https://packagist.org/packages/flawlol/facade-ide-helper)
 [![Total Downloads](https://poser.pugx.org/flawlol/facade-ide-helper/downloads)](https://packagist.org/packages/flawlol/facade-ide-helper)

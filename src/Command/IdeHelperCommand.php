@@ -3,14 +3,15 @@
 namespace Flawlol\FacadeIdeHelper\Command;
 
 use Flawlol\FacadeIdeHelper\Interface\ProcessInterface;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'app:generate-facade-helpers', description: 'Generate Facade helpers for IDE')]
 class IdeHelperCommand extends Command
 {
+    protected static $defaultName = 'app:generate-ide-helper';
+    protected static $defaultDescription = 'Generates facade helpers for IDE support.';
+
     /**
      * IdeHelperCommand constructor.
      *
