@@ -16,7 +16,7 @@ class IdeHelperCommand extends Command
      *
      * @param ProcessInterface $process The process interface for generating facade helpers.
      */
-    public function __construct(private readonly ProcessInterface $process)
+    public function __construct(private ProcessInterface $process)
     {
         parent::__construct();
     }

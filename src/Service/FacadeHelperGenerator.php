@@ -28,7 +28,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
      *
      * @param ContainerInterface $container The container interface for dependency injection.
      */
-    public function __construct(private readonly ContainerInterface $container)
+    public function __construct(private ContainerInterface $container)
     {
     }
 
