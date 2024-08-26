@@ -169,9 +169,9 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         $paramsVariable = $params ? '$'.implode(
             ', $',
             array_map(
-            static fn (ReflectionParameter $param): string => $param->getName(),
-            $method->getParameters()
-        )
+                static fn (ReflectionParameter $param): string => $param->getName(),
+                $method->getParameters()
+            )
         ) : '';
 
         $returnType = $method->getReturnType();

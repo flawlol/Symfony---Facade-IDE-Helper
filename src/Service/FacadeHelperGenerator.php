@@ -4,9 +4,9 @@ namespace Flawlol\FacadeIdeHelper\Service;
 
 use Flawlol\Facade\Abstract\Facade;
 use Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use ReflectionParameter;
 use SplFileObject;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -171,9 +171,9 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         $paramsVariable = $params ? '$'.implode(
             ', $',
             array_map(
-            static fn (ReflectionParameter $param): string => $param->getName(),
-            $method->getParameters()
-        )
+                static fn (ReflectionParameter $param): string => $param->getName(),
+                $method->getParameters()
+            )
         ) : '';
 
         $returnType = $method->getReturnType();
