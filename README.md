@@ -21,7 +21,7 @@ To install the package, use Composer:
 ```composer require flawlol/facade-ide-helper```
 
 ## Requirements
-* PHP >= 8.2
+* PHP >= 8.1
 * Symfony Framework Bundle >=6.4
 * flawlol/facade >=1.0
 
