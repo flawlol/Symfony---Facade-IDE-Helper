@@ -141,7 +141,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
 
         foreach ($methods as $method) {
 
-            if ($method->isPublic() && !$method->isStatic()) {
+            if ($method->isPublic()) {
                 $this->writeMethod($helperFile, $method, $serviceInstanceReflection);
             }
         }
