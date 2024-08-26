@@ -12,14 +12,14 @@ use Flawlol\FacadeIdeHelper\Interface\ProcessInterface;
  *
  * @author Flawlol - Norbert Kecső
  */
-final class ProcessCommand implements ProcessInterface
+final readonly class ProcessCommand implements ProcessInterface
 {
     /**
      * ProcessCommand constructor.
      *
      * @param FacadeHelperGeneratorInterface $facadeHelperGenerator The facade helper generator interface.
      */
-    public function __construct(private FacadeHelperGeneratorInterface $facadeHelperGenerator)
+    public function __construct(private readonly FacadeHelperGeneratorInterface $facadeHelperGenerator)
     {
     }
 

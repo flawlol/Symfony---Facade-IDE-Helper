@@ -4,7 +4,7 @@ namespace Flawlol\FacadeIdeHelper\Service;
 
 use Flawlol\Facade\Abstract\Facade;
 use Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use ReflectionParameter;
 use SplFileObject;
 use Symfony\Component\Finder\Finder;
@@ -28,7 +28,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
      *
      * @param ContainerInterface $container The container interface for dependency injection.
      */
-    public function __construct(private ContainerInterface $container)
+    public function __construct(private readonly ContainerInterface $container)
     {
     }
 
