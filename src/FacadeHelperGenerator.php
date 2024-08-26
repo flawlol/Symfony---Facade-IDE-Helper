@@ -2,15 +2,15 @@
 
 namespace Flawlol\FacadeIdeHelper\Service;
 
-use Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface;
 use Flawlol\Facade\Abstract\Facade;
+use Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface;
 use Psr\Container\ContainerInterface;
 use ReflectionParameter;
 use SplFileObject;
 use Symfony\Component\Finder\Finder;
 
 /**
- * Class FacadeHelperGenerator
+ * Class FacadeHelperGenerator.
  *
  * This class is responsible for generating facade helper files for IDEs.
  *
@@ -30,7 +30,6 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
      */
     public function __construct(private ContainerInterface $container)
     {
-
     }
 
     /**
@@ -42,7 +41,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
     public function generate(): void
     {
         $projectDir = $this->container->getParameter('kernel.project_dir');
-        $srcDir = $projectDir . '/src';
+        $srcDir = $projectDir.'/src';
 
         $finder = new Finder();
         $finder->files()->in($srcDir)->name('*.php');
@@ -79,6 +78,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
      * Get the fully qualified class name from a file.
      *
      * @param string $filePath The path to the file.
+     *
      * @return string|null The fully qualified class name, or null if not found.
      */
     private function getClassNameFromFile(string $filePath): ?string
@@ -91,7 +91,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         }
 
         if (preg_match('/class\s+(\w+)/', $contents, $matches)) {
-            return $namespace ? $namespace . '\\' . $matches[1] : $matches[1];
+            return $namespace ? $namespace.'\\'.$matches[1] : $matches[1];
         }
 
         return null;
@@ -101,6 +101,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
      * Check if a class is an instance of the Facade class without initializing it.
      *
      * @param object|null $className The class to check.
+     *
      * @return bool True if the class is an instance of the Facade class, false otherwise.
      */
     private function isInstanceOfWithoutInitializing(object $className = null): bool
@@ -111,16 +112,15 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
     /**
      * Write the namespace and class structure to the helper file.
      *
-     * @param SplFileObject $helperFile The helper file object.
+     * @param SplFileObject    $helperFile      The helper file object.
      * @param \ReflectionClass $reflectionClass The reflection class object.
-     * @param object $object The class object.
+     * @param object           $object          The class object.
      */
     private function writeNamespaceAndClass(SplFileObject $helperFile, \ReflectionClass $reflectionClass, $object): void
     {
         $namespace = $reflectionClass->getNamespaceName();
 
         if ($namespace !== $this->currentNamespace) {
-
             if ($this->currentNamespace !== '') {
                 $helperFile->fwrite("}\n\n");
             }
@@ -138,7 +138,6 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         $methods = $serviceInstanceReflection->getMethods();
 
         foreach ($methods as $method) {
-
             if ($method->isPublic() && !$method->isStatic()) {
                 $this->writeMethod($helperFile, $method, $serviceInstanceReflection);
             }
@@ -150,9 +149,9 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
     /**
      * Write the method signature and docblock to the helper file.
      *
-     * @param SplFileObject $helperFile The helper file object.
-     * @param \ReflectionMethod $method The reflection method object.
-     * @param \ReflectionClass $serviceInstanceReflection The reflection class object of the service instance.
+     * @param SplFileObject     $helperFile                The helper file object.
+     * @param \ReflectionMethod $method                    The reflection method object.
+     * @param \ReflectionClass  $serviceInstanceReflection The reflection class object of the service instance.
      */
     private function writeMethod(SplFileObject $helperFile, \ReflectionMethod $method, \ReflectionClass $serviceInstanceReflection): void
     {
@@ -160,17 +159,20 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
 
         foreach ($method->getParameters() as $param) {
             $paramType = $param->getType();
-            $type = $paramType ? $paramType->getName() . ' ' : '';
-            $defaultValue = $param->isOptional() ? ' = ' . var_export($param->getDefaultValue(), true) : '';
-            $params[] = $type . '$' . $param->getName() . $defaultValue;
+            $type = $paramType ? $paramType->getName().' ' : '';
+            $defaultValue = $param->isOptional() ? ' = '.var_export($param->getDefaultValue(), true) : '';
+            $params[] = $type.'$'.$param->getName().$defaultValue;
         }
 
         $paramsStringOriginal = implode(', ', $params);
 
-        $paramsVariable = $params ? '$' . implode(', $', array_map(
-            static fn(ReflectionParameter $param): string => $param->getName(),
-            $method->getParameters())
-            ) : '';
+        $paramsVariable = $params ? '$'.implode(
+            ', $',
+            array_map(
+            static fn (ReflectionParameter $param): string => $param->getName(),
+            $method->getParameters()
+        )
+        ) : '';
 
         $returnType = $method->getReturnType();
         $returnTypeString = $returnType ? $returnType->getName() : 'mixed';
@@ -179,7 +181,7 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
 
         foreach ($method->getParameters() as $param) {
             $paramType = $param->getType();
-            $type = $paramType ? $paramType->getName() . ' ' : '';
+            $type = $paramType ? $paramType->getName().' ' : '';
             $params[] = "@param {$type}\${$param->getName()}";
         }
 

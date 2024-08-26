@@ -6,7 +6,7 @@ use Flawlol\FacadeIdeHelper\Interface\FacadeHelperGeneratorInterface;
 use Flawlol\FacadeIdeHelper\Interface\ProcessInterface;
 
 /**
- * Class ProcessCommand
+ * Class ProcessCommand.
  *
  * This class implements the ProcessInterface and is responsible for invoking the facade helper generation process.
  *
@@ -21,7 +21,6 @@ final class ProcessCommand implements ProcessInterface
      */
     public function __construct(private FacadeHelperGeneratorInterface $facadeHelperGenerator)
     {
-
     }
 
     /**

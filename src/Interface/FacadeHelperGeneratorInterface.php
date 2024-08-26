@@ -3,7 +3,7 @@
 namespace Flawlol\FacadeIdeHelper\Interface;
 
 /**
- * Interface FacadeHelperGeneratorInterface
+ * Interface FacadeHelperGeneratorInterface.
  *
  * This interface defines the contract for generating facade helper files.
  *

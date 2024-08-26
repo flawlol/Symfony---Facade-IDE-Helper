@@ -3,7 +3,7 @@
 namespace Flawlol\FacadeIdeHelper\Interface;
 
 /**
- * Interface ProcessInterface
+ * Interface ProcessInterface.
  *
  * This interface defines the contract for processing facade helper generation.
  *
