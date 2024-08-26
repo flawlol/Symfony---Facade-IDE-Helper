@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 /**
- * Class FacadeIdeHelper
+ * Class FacadeIdeHelper.
  *
  * This class extends the AbstractBundle and provides methods for booting the bundle,
  * retrieving the path and namespace, and loading the extension configuration.
@@ -51,9 +51,9 @@ class FacadeIdeHelper extends AbstractBundle
      *
      * This method loads the extension configuration from the specified YAML file.
      *
-     * @param array $config The configuration array.
+     * @param array                 $config    The configuration array.
      * @param ContainerConfigurator $container The container configurator.
-     * @param ContainerBuilder $builder The container builder.
+     * @param ContainerBuilder      $builder   The container builder.
      */
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {

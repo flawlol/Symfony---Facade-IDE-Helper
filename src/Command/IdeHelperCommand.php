@@ -25,8 +25,9 @@ class IdeHelperCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param InputInterface $input The input interface.
+     * @param InputInterface  $input  The input interface.
      * @param OutputInterface $output The output interface.
+     *
      * @return int The command exit status.
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
