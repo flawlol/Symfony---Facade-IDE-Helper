@@ -12,7 +12,7 @@ use Flawlol\FacadeIdeHelper\Interface\ProcessInterface;
  *
  * @author Flawlol - Norbert Kecső
  */
-final readonly class ProcessCommand implements ProcessInterface
+final class ProcessCommand implements ProcessInterface
 {
     /**
      * ProcessCommand constructor.
