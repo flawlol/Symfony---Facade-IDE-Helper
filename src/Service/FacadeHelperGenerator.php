@@ -140,6 +140,11 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         $methods = $serviceInstanceReflection->getMethods();
 
         foreach ($methods as $method) {
+            
+            if ($method->isConstructor()) {
+                continue;
+            }
+
             if ($method->isPublic()) {
                 $this->writeMethod($helperFile, $method, $serviceInstanceReflection);
             }
@@ -169,12 +174,12 @@ final class FacadeHelperGenerator implements FacadeHelperGeneratorInterface
         $paramsStringOriginal = implode(', ', $params);
 
         $paramsVariable = $params ? '$'.implode(
-            ', $',
-            array_map(
-                static fn (ReflectionParameter $param): string => $param->getName(),
-                $method->getParameters()
-            )
-        ) : '';
+                ', $',
+                array_map(
+                    static fn (ReflectionParameter $param): string => $param->getName(),
+                    $method->getParameters()
+                )
+            ) : '';
 
         $returnType = $method->getReturnType();
         $returnTypeString = $returnType ? $returnType->getName() : 'mixed';
